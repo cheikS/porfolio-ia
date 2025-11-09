@@ -24,6 +24,10 @@ export function Navbar() {
             <NavigationMenuItem>
               <Link href="/contact" className="hover:text-blue-500 transition">Contact</Link>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/demo" className="hover:text-blue-500 transition">Démo</Link>
+            </NavigationMenuItem>
+
           </NavigationMenuList>
         </NavigationMenu>
         <ThemeToggle />

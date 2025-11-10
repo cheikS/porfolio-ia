@@ -1,6 +1,6 @@
 export const projects = [
   {
-    title: "Clicount",
+    title: "Tricount",
     description: "Application web permettant de gérer et partager facilement les dépenses entre plusieurs utilisateurs.",
     technologies: ["PHP", "MySQL", "JavaScript", "jQuery", "AJAX"],
     image: "/images/clicount.png", 

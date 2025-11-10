@@ -13,7 +13,7 @@ export default function HomePage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Salut 👋, je suis <span className="text-blue-600 dark:text-blue-400">Yahya Sacko</span>
+        Salut 👋, je suis <span className="text-blue-600 dark:text-blue-400">Cheick Sacko</span>
       </motion.h1>
 
       <motion.p

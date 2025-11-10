@@ -15,23 +15,55 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
+// --- Helpers ---
+function withProtocol(url?: string) {
+  if (!url) return ""
+  if (/^https?:\/\//i.test(url)) return url
+  return `https://${url.replace(/^\/+/, "")}`
+}
+
 export default function ProjectsPage() {
+  // Ajoute le Portfolio en premier
+  const extendedProjects = [
+    {
+      title: "Portfolio – Site Next.js & IA",
+      description:
+        "Mon site personnel réalisé avec Next.js 15, Tailwind, Shadcn/UI, Framer Motion et OpenAI API. Démo interactive et widget de chat.",
+      technologies: [
+        "Next.js 15",
+        "TypeScript",
+        "Tailwind",
+        "Shadcn/UI",
+        "Framer Motion",
+        "OpenAI API",
+      ],
+      image: "/images/portfolio-preview.jpeg",
+      github: "github.com/ton-user/ton-portfolio",
+    },
+    // 👉 Renommer “Clicount” en “Tricount” sans modifier la source
+    ...projects.map((p) =>
+      /clicount/i.test(p.title ?? "")
+        ? { ...p, title: "Tricount" }
+        : p
+    ),
+  ]
+
   return (
     <section className="space-y-8 px-4 md:px-10 lg:px-20 py-10">
       <header className="space-y-2 text-center">
         <h1 className="text-3xl md:text-4xl font-bold">Mes projets</h1>
         <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Voici quelques réalisations récentes. Cliquez pour voir le code ou la démo.
+          Voici quelques réalisations récentes. Cliquez pour voir le code.
         </p>
       </header>
 
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((p, i) => (
+        {extendedProjects.map((p, i) => (
           <motion.div
-            key={i}
+            key={p.title + i}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, delay: i * 0.1 }}
+            transition={{ duration: 0.35, delay: i * 0.08 }}
           >
             <Card className="flex flex-col h-full hover:shadow-lg transition rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
               {p.image ? (
@@ -64,13 +96,13 @@ export default function ProjectsPage() {
 
               <CardFooter className="mt-auto flex gap-3 p-4">
                 {p.github && (
-                  <Link href={p.github} target="_blank" rel="noopener noreferrer">
+                  <Link
+                    href={withProtocol(p.github)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    prefetch={false}
+                  >
                     <Button variant="default">Voir le code</Button>
-                  </Link>
-                )}
-                {p.demo && (
-                  <Link href={p.demo} target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline">Live demo</Button>
                   </Link>
                 )}
               </CardFooter>

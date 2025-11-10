@@ -5,6 +5,7 @@ import ChatBot from "@/components/ChatBot"
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false)
+  const [showHint, setShowHint] = useState(true)
   const panelRef = useRef<HTMLDivElement | null>(null)
 
   // Fermer avec la touche Échap
@@ -16,11 +17,20 @@ export default function ChatWidget() {
     return () => window.removeEventListener("keydown", onKey)
   }, [])
 
+  // Cache la bulle d’indication après quelques secondes ou dès qu'on clique
+  useEffect(() => {
+    const timer = setTimeout(() => setShowHint(false), 8000)
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <>
       {/* 🔘 Bouton emoji flottant */}
       <button
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          setOpen((v) => !v)
+          setShowHint(false)
+        }}
         aria-label={open ? "Fermer le chat" : "Ouvrir le chat"}
         className={`
           fixed bottom-6 right-6 z-50 size-16
@@ -35,7 +45,17 @@ export default function ChatWidget() {
         👨🏾‍💻
       </button>
 
-      {/* 💬 Panneau du chat (affiché seulement si open) */}
+      {/* 💬 Petite bulle d'indication */}
+      {showHint && !open && (
+        <div
+          className="fixed bottom-24 right-24 z-40 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg rounded-xl px-3 py-2 text-sm text-gray-800 dark:text-gray-100 animate-[fadeIn_1s_ease-in-out]"
+        >
+          💬 Clique ici pour discuter avec moi !
+          <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white dark:bg-gray-900 border-r border-b border-gray-200 dark:border-gray-700 rotate-45"></div>
+        </div>
+      )}
+
+      {/* 💭 Panneau du chat (affiché seulement si open) */}
       {open && (
         <div
           ref={panelRef}

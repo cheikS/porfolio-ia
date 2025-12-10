@@ -82,9 +82,7 @@ export function ProjectCard({ project }: Props) {
             )}
             {project.demoPath && (
               <a href={project.demoPath}>
-                <Button size="sm" variant="ghost" className="text-xs">
-                  Démo
-                </Button>
+                
               </a>
             )}
           </div>

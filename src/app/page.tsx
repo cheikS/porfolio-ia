@@ -187,6 +187,83 @@ export default function HomePage() {
           />
         </div>
       </section>
+            {/* À PROPOS DE MOI */}
+      <section className="space-y-4">
+        <h2 className="text-2xl md:text-3xl font-semibold">À propos de moi</h2>
+
+        <div className="grid gap-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)] items-start">
+          {/* Texte principal */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25 }}
+            viewport={{ once: true }}
+            className="space-y-3 text-sm text-gray-700 dark:text-gray-200"
+          >
+            <p>
+              Je m&apos;appelle <span className="font-semibold">Yahya Sacko</span>, je suis un
+              développeur full-stack en début de carrière, basé en Belgique. J&apos;aime concevoir
+              des applications complètes, du backend jusqu&apos;à l&apos;interface, avec un vrai
+              souci de clarté et de structure (MVC, MVVM, design patterns…).
+            </p>
+            <p>
+              J&apos;ai travaillé sur des projets concrets comme une application de gestion de
+              dépenses type Tricount (PHP, MySQL, MVC), un jeu de gestion de ferme en JavaFX (MVVM,
+              design patterns) et ce portfolio interactif en Next.js avec intégration d&apos;un
+              chatbot IA. Ces projets me servent de terrain d&apos;entraînement pour progresser sur
+              des technologies modernes comme Next.js, TypeScript, Tailwind et l&apos;API OpenAI.
+            </p>
+            <p>
+              Aujourd&apos;hui, je cherche à rejoindre une équipe où je peux continuer à monter en
+              compétence sur le développement web moderne, l&apos;IA et l&apos;architecture
+              logicielle, tout en apportant mon sérieux, ma curiosité et ma capacité à apprendre
+              vite.
+            </p>
+          </motion.div>
+
+          {/* Petit bloc résumé à droite */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="rounded-2xl border bg-card text-card-foreground p-4 text-xs space-y-3"
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-xl">⚽</span>
+              <div>
+                <div className="font-semibold text-sm">En dehors du code</div>
+                <div className="text-muted-foreground">
+                  Sport, football, cinéma et jeux vidéo.
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div className="font-semibold mb-1 text-[13px]">
+                En résumé, je suis à l&apos;aise avec :
+              </div>
+              <ul className="list-disc list-inside space-y-0.5 text-muted-foreground">
+                <li>Des projets complets front + back.</li>
+                <li>Les architectures structurées (MVC, MVVM, design patterns).</li>
+                <li>Les intégrations d&apos;IA dans des apps web.</li>
+              </ul>
+            </div>
+
+            <div>
+              <div className="font-semibold mb-1 text-[13px]">
+                Ce que je recherche :
+              </div>
+              <ul className="list-disc list-inside space-y-0.5 text-muted-foreground">
+                <li>Stage, alternance ou premier poste en développement.</li>
+                <li>Un environnement où je peux apprendre vite.</li>
+                <li>Des projets web modernes et/ou liés à l&apos;IA.</li>
+              </ul>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
 
       {/* PROJETS EN AVANT */}
       <section className="space-y-4">
@@ -315,5 +392,6 @@ function FeatureCard({ icon, title, items }: FeatureCardProps) {
         ))}
       </ul>
     </motion.div>
+    
   )
 }

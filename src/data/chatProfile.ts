@@ -2,7 +2,7 @@
 import { projects } from "./projects"
 
 export const chatProfile = {
-  name: "Yahya Sacko",
+  name: "Cheick Sacko",
   role: "Développeur full-stack junior",
   location: "Belgique",
   focus:
@@ -28,7 +28,7 @@ export function buildProjectsContext() {
 
 /**
  * Instructions de base envoyées comme message système au modèle.
- * Le chatbot doit répondre COMME Yahya, pour des recruteurs,
+ * Le chatbot doit répondre COMME Cheick, pour des recruteurs,
  * de manière courte, structurée et honnête.
  */
 export const baseInstructions = `

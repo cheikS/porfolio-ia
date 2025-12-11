@@ -55,7 +55,7 @@ export default function AboutPage() {
           </span>
 
           <h1 className="text-3xl md:text-4xl font-bold">
-            Yahya Sacko – développeur full-stack en construction, passionné par le web et l&apos;IA.
+            Cheick Sacko – développeur full-stack en construction, passionné par le web et l&apos;IA.
           </h1>
           <p className="mt-3 text-sm md:text-base text-muted-foreground">
             J’aime transformer des idées en applications concrètes : des outils web utiles, des
@@ -73,7 +73,7 @@ export default function AboutPage() {
             className="space-y-3 text-sm text-gray-800 dark:text-gray-100"
           >
             <p>
-              Je m&apos;appelle <span className="font-semibold">Yahya Sacko</span>, je vis en
+              Je m&apos;appelle <span className="font-semibold">Cheick Sacko</span>, je vis en
               Belgique et je suis en début de parcours dans le développement. J&apos;ai une approche
               très structurée du code : j’aime comprendre ce que je fais, organiser les projets,
               utiliser des architectures claires (MVC, MVVM, design patterns) et apprendre en
@@ -109,7 +109,7 @@ export default function AboutPage() {
                 👨🏾‍💻
               </div>
               <div>
-                <div className="font-semibold text-sm">Yahya Sacko</div>
+                <div className="font-semibold text-sm">Cheick Sacko</div>
                 <div className="text-muted-foreground">Développeur full-stack en devenir</div>
               </div>
             </div>

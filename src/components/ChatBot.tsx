@@ -35,7 +35,7 @@ export default function ChatBot() {
   return (
     <div className="w-full h-full flex flex-col bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden">
       <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700 text-sm font-semibold">
-        💬 Chat avec Yahya IA
+        💬 Chat avec Cheick IA
       </div>
 
       <div className="flex-1 overflow-y-auto p-3 space-y-2">

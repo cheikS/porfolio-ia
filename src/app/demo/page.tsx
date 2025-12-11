@@ -143,7 +143,7 @@ export async function POST(req: Request){
   const { message } = await req.json()
   const out = await client.chat.completions.create({
     model: "gpt-4o-mini",
-    messages: [{ role:"system",content:"Tu es Yahya Sacko, dev full-stack." }, { role:"user",content: message }]
+    messages: [{ role:"system",content:"Tu es Cheick Sacko, dev full-stack." }, { role:"user",content: message }]
   })
   return Response.json({ reply: out.choices[0]?.message?.content ?? "" })
 }`,

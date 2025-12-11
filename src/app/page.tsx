@@ -51,7 +51,7 @@ export default function HomePage() {
           <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs bg-muted/60">
             <span className="text-lg">👨🏾‍💻</span>
             <span className="font-medium">
-              Yahya Sacko – Développeur Full-Stack orienté IA
+              Cheick Sacko – Développeur Full-Stack orienté IA
             </span>
           </div>
 
@@ -105,7 +105,7 @@ export default function HomePage() {
             <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-500" />
             <span className="inline-block h-2.5 w-2.5 rounded-full bg-yellow-400" />
             <span className="inline-block h-2.5 w-2.5 rounded-full bg-green-500" />
-            <span className="ml-3 text-[11px] opacity-60">yahyas-portfolio ~/</span>
+            <span className="ml-3 text-[11px] opacity-60">cheicks-portfolio ~/</span>
           </div>
 
           <div className="px-4 py-3 space-y-1.5 font-mono">
@@ -113,7 +113,7 @@ export default function HomePage() {
               <span className="text-green-400">$ </span>
               whoami
             </div>
-            <div className="pl-5 text-blue-300">"Yahya Sacko"</div>
+            <div className="pl-5 text-blue-300">"Cheick Sacko"</div>
 
             <div className="mt-3">
               <span className="text-green-400">$ </span>
@@ -201,7 +201,7 @@ export default function HomePage() {
             className="space-y-3 text-sm text-gray-700 dark:text-gray-200"
           >
             <p>
-              Je m&apos;appelle <span className="font-semibold">Yahya Sacko</span>, je suis un
+              Je m&apos;appelle <span className="font-semibold">Cheick Sacko</span>, je suis un
               développeur full-stack en début de carrière, basé en Belgique. J&apos;aime concevoir
               des applications complètes, du backend jusqu&apos;à l&apos;interface, avec un vrai
               souci de clarté et de structure (MVC, MVVM, design patterns…).

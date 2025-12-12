@@ -36,11 +36,12 @@ export async function POST(req: Request) {
     console.log("Resend result:", result)
 
     return NextResponse.json({ success: true })
-  } catch (error: any) {
-    console.error("Send email error:", error)
-    return NextResponse.json(
-      { error: error?.message || "Email not sent" },
-      { status: 500 },
-    )
-  }
+  } catch (error: unknown) {
+  console.error("Send email error:", error)
+
+  const message =
+    error instanceof Error ? error.message : "Email not sent"
+
+  return NextResponse.json({ error: message }, { status: 500 })
+}
 }

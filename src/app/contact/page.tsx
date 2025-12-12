@@ -10,33 +10,36 @@ export default function ContactPage() {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false)
 
-  async function handleSubmit(e: any) {
-    e.preventDefault()
-    setLoading(true)
-    setError(false)
-    setSuccess(false)
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault()
+  setLoading(true)
+  setError(false)
+  setSuccess(false)
 
-    const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      message: e.target.message.value,
-    }
+  const form = e.currentTarget
+  const formData = new FormData(form)
 
-    const res = await fetch("/api/send-email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    })
-
-    setLoading(false)
-
-    if (res.ok) {
-      setSuccess(true)
-      e.target.reset()
-    } else {
-      setError(true)
-    }
+  const payload = {
+    name: String(formData.get("name") ?? ""),
+    email: String(formData.get("email") ?? ""),
+    message: String(formData.get("message") ?? ""),
   }
+
+  const res = await fetch("/api/send-email", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  })
+
+  setLoading(false)
+
+  if (res.ok) {
+    setSuccess(true)
+    form.reset()
+  } else {
+    setError(true)
+  }
+}
 
   return (
     <main className="max-w-xl mx-auto px-4 py-10 space-y-8">

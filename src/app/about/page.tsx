@@ -254,32 +254,4 @@ function InfoLine({ label, value }: { label: string; value: string }) {
   )
 }
 
-function WorkCard({
-  icon,
-  title,
-  lines,
-}: {
-  icon: string
-  title: string
-  lines: string[]
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 6 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
-      viewport={{ once: true }}
-      className="rounded-xl border bg-card text-card-foreground p-4 space-y-2"
-    >
-      <div className="flex items-center gap-2">
-        <span className="text-xl">{icon}</span>
-        <h3 className="font-semibold text-sm">{title}</h3>
-      </div>
-      <ul className="text-[11px] space-y-1 text-muted-foreground">
-        {lines.map((line) => (
-          <li key={line}>• {line}</li>
-        ))}
-      </ul>
-    </motion.div>
-  )
-}
+

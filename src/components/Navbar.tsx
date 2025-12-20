@@ -1,51 +1,82 @@
 "use client"
 
 import Link from "next/link"
-import { ThemeToggle } from "@/components/ThemeToggle"
+import { usePathname } from "next/navigation"
+import { useEffect, useState } from "react"
+import { Button } from "@/components/ui/button"
 
-export function Navbar() {
-  const links = [
-    { href: "/", label: "Accueil" },
-    { href: "/projects", label: "Projets" },
-    { href: "/demo", label: "Démo" },
-    { href: "/contact", label: "Contact" },
-    { href: "/about", label: "À propos" },
-  ]
+const navItems = [
+  { href: "/", label: "Accueil" },
+  { href: "/projects", label: "Projets" },
+  { href: "/demo", label: "Démo" },
+  { href: "/about", label: "À propos" },
+  { href: "/contact", label: "Contact" },
+]
+
+export default function Navbar() {
+  const pathname = usePathname()
+  const [open, setOpen] = useState(false)
+
+  // Ferme le menu quand tu changes de page
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
 
   return (
-    <nav className="w-full border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-4 h-14 flex items-center gap-4">
-        {/* Logo à gauche */}
-        <div className="shrink-0">
-          <Link href="/" className="inline-flex items-center">
-            <span className="text-xl font-bold text-blue-600 dark:text-blue-400">Cheick</span>
-            <span className="text-xl font-bold text-gray-700 dark:text-gray-300">.dev</span>
-          </Link>
-        </div>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
+      <div className="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="font-semibold tracking-tight">
+          Cheick Sacko
+        </Link>
 
-        {/* Liens répartis sur la largeur */}
-        <ul className="flex-1 grid grid-cols-5">
-          {links.map((l) => (
-            <li key={l.href} className="min-w-0">
-              <Link
-                href={l.href}
-                className="block w-full text-center px-3 py-2 text-sm font-medium
-                           text-gray-700 dark:text-gray-200
-                           hover:bg-gray-100 dark:hover:bg-gray-800
-                           hover:text-blue-600 dark:hover:text-blue-400
-                           rounded-md transition"
-              >
-                {l.label}
+        {/* Desktop */}
+        <nav className="hidden md:flex items-center gap-2">
+          {navItems.map((item) => {
+            const active = pathname === item.href
+            return (
+              <Link key={item.href} href={item.href}>
+                <Button variant={active ? "secondary" : "ghost"} size="sm">
+                  {item.label}
+                </Button>
               </Link>
-            </li>
-          ))}
-        </ul>
+            )
+          })}
+        </nav>
 
-        {/* Thème à droite */}
-        <div className="shrink-0">
-          <ThemeToggle />
+        {/* Mobile button */}
+        <div className="md:hidden">
+          <Button
+            variant="outline"
+            size="sm"
+            aria-label="Ouvrir le menu"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? "✕" : "☰"}
+          </Button>
         </div>
       </div>
-    </nav>
+
+      {/* Mobile dropdown */}
+      {open && (
+        <div className="md:hidden border-t bg-background">
+          <div className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-2">
+            {navItems.map((item) => {
+              const active = pathname === item.href
+              return (
+                <Link key={item.href} href={item.href} className="w-full">
+                  <Button
+                    variant={active ? "secondary" : "ghost"}
+                    className="w-full justify-start"
+                  >
+                    {item.label}
+                  </Button>
+                </Link>
+              )
+            })}
+          </div>
+        </div>
+      )}
+    </header>
   )
 }

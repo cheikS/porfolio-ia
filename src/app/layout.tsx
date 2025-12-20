@@ -2,7 +2,7 @@
 
 import "./globals.css"
 import { ThemeProvider } from "next-themes"
-import { Navbar } from "@/components/Navbar"
+import Navbar from "@/components/Navbar"
 import ChatWidget from "@/components/ChatWidget"
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -35,7 +35,7 @@ export const projects: Project[] = [
     role: "Développeur full-stack (projet d'école en binôme)",
     year: "2023",
     technologies: ["PHP 8", "MySQL", "MVC", "jQuery", "AJAX"],
-    github: "https://github.com/cheikS/clicount",
+    github: "https://github.com/cheikS/tricount.git",
     demoPath: "/demo/tricount",
 
     context:
@@ -100,7 +100,7 @@ export const projects: Project[] = [
   role: "Développeur Java / JavaFX",
   year: "2022",
   technologies: ["Java", "JavaFX", "MVVM", "POO", "Design patterns"],
-  github: "https://github.com/cheikS/farming-game",
+  github: "https://github.com/cheikS/farmGame.git",
 
   context:
     "Projet réalisé dans le cadre d'un cours avancé de programmation orientée objet. L’objectif était de mettre en pratique les design patterns (notamment MVVM) avec JavaFX.",

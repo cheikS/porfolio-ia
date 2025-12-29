@@ -12,7 +12,7 @@ const rotatingPhrases = [
   "Next.js & TypeScript pour des interfaces modernes.",
   "PHP MVC & MySQL pour des backends structurés.",
   "Java & JavaFX avec des design patterns clairs.",
-  "Intégration de l&apos;IA avec l&apos;API OpenAI.",
+  "Intégration de l'IA avec l'API OpenAI.",
   "Des projets complets, du backend au frontend.",
 ]
 

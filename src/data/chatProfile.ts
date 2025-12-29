@@ -9,6 +9,7 @@ export const chatProfile = {
   location: "Belgique",
   languages: ["Java", "PHP (Laravel)", "JavaScript/TypeScript", "Python"],
   stack: ["Next.js", "TypeScript", "TailwindCSS", "shadcn/ui", "MySQL", "OpenAI API"],
+  focus: "Développement web moderne (Next.js/TypeScript) et intégration IA (API OpenAI)",
   softSkills: ["Sérieux", "Autonome", "Persévérant", "Curieux", "Calme"],
 
   education: [

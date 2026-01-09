@@ -7,6 +7,8 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 })
 
+
+
 export async function POST(req: Request) {
   try {
     const { message } = (await req.json()) as { message: string }
@@ -55,4 +57,11 @@ Important :
       { status: 500 },
     )
   }
+}
+export function validateMessage(message: unknown) {
+  if (typeof message !== "string") return { ok: false, error: "invalid_type" }
+  const trimmed = message.trim()
+  if (trimmed.length === 0) return { ok: false, error: "empty" }
+  if (trimmed.length > 2000) return { ok: false, error: "too_long" }
+  return { ok: true, value: trimmed }
 }

@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/ThemeToggle"
 
 const navItems = [
   { href: "/", label: "Accueil" },
@@ -17,21 +18,20 @@ export default function Navbar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
 
-  // Ferme le menu quand tu changes de page
   useEffect(() => {
     setOpen(false)
   }, [pathname])
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
-      <div className="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between">
+      <div className="mx-auto max-w-6xl px-4 h-14 flex items-center gap-4">
         {/* Logo */}
-        <Link href="/" className="font-semibold tracking-tight">
+        <Link href="/" className="font-semibold tracking-tight shrink-0">
           Cheick Sacko
         </Link>
 
-        {/* Desktop */}
-        <nav className="hidden md:flex items-center gap-2">
+        {/* Desktop nav – prend toute la largeur */}
+        <nav className="hidden md:flex flex-1 items-center justify-evenly">
           {navItems.map((item) => {
             const active = pathname === item.href
             return (
@@ -44,16 +44,21 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Mobile button */}
-        <div className="md:hidden">
-          <Button
-            variant="outline"
-            size="sm"
-            aria-label="Ouvrir le menu"
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? "✕" : "☰"}
-          </Button>
+        {/* Actions à droite */}
+        <div className="flex items-center gap-2 shrink-0">
+          <ThemeToggle />
+
+          {/* Mobile hamburger */}
+          <div className="md:hidden">
+            <Button
+              variant="outline"
+              size="sm"
+              aria-label="Ouvrir le menu"
+              onClick={() => setOpen((v) => !v)}
+            >
+              {open ? "✕" : "☰"}
+            </Button>
+          </div>
         </div>
       </div>
 

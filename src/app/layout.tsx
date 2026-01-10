@@ -1,19 +1,22 @@
-"use client"
-
 import "./globals.css"
-import { ThemeProvider } from "next-themes"
 import Navbar from "@/components/Navbar"
-import ChatWidget from "@/components/ChatWidget"
+import Providers from "@/components/Providers"
+import ChatWidget from "@/components/ChatWidget" // ou ton composant chatbot
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" suppressHydrationWarning>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <Providers>
           <Navbar />
-          <main className="max-w-6xl mx-auto px-4 py-6">{children}</main>
-          <ChatWidget /> {/* 👈 bouton emoji + panneau toggle */}
-        </ThemeProvider>
+
+          {/* ton chatbot doit être ici (global) */}
+          <ChatWidget />
+
+          <main className="mx-auto max-w-6xl px-4">
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   )

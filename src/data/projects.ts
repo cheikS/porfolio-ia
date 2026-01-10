@@ -170,7 +170,7 @@ export const projects: Project[] = [
       "Framer Motion",
       "OpenAI API",
     ],
-    github: "https://github.com/cheikS/porfolio-ia.git",
+    github: "https://github.com/cheikS/portfolio-ia.git",
 
     context:
       "Projet personnel visant à créer une vitrine professionnelle moderne et interactive.",
